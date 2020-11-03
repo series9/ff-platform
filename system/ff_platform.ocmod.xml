@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<modification>
+	<name>FF-platform ocStore 3.0.3</name> 
+	<version>3.001</version>
+	<author>Series9</author>
+	<link>https://serq.ru</link>
+	<code>ff-platform-ocstore3</code>
+	<file path="admin/controller/common/column_left.php">
+		<operation error="skip">
+			<search><![CDATA[
+	if ($catalog) {
+			]]></search>
+			<add position="before"><![CDATA[
+    if ($this->user->hasPermission('access', 'catalog/fplatform')) {		
+		$catalog[] = array(
+			'name'	   =>  'Обновление остатков',
+			'href'     => $this->url->link('catalog/fplatform', 'user_token=' . $this->session->data['user_token'], true),
+			'children' => array()		
+		);					
+	}
+			]]></add>
+		</operation>
+	</file>
+</modification>
