@@ -6,6 +6,7 @@
 - OCMOD;
 - PHP 5.3 или выше;
 - CURL;
+- OpenCart 3.x
 
 
 Установка:
